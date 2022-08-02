@@ -1,0 +1,13 @@
+@startuml
+class Lecture {
+    + Lecture(name:string, address:string, timeStart:string, timeStop:string, teacher:Teacher)
+    + Name : string <<get>>
+    + Address : string <<get>>
+    + Start : string <<get>>
+    + Stop : string <<get>>
+}
+class "List`1"<T> {
+}
+Lecture --> "Students<Student>" "List`1"
+Lecture --> "HomeroomTeacher" Teacher
+@enduml

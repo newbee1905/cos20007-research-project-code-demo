@@ -1,0 +1,6 @@
+@startuml
+class Teacher {
+    + Teacher(name:string, age:short)
+}
+Human <|-- Teacher
+@enduml

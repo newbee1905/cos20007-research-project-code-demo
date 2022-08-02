@@ -1,0 +1,32 @@
+@startuml
+!theme minty
+abstract class Human {
+    + Human(name:string, age:short)
+    + Name : string <<get>>
+    + Age : short <<get>>
+}
+class Student {
+    + Student(name:string, age:short)
+		+ GetGrade(lecture:Lecture)
+}
+Human <|-- Student
+class Teacher {
+    + Teacher(name:string, age:short)
+		+ Grade(lecture:Lecture, studentName:string, grade:byte)
+		+ CheckAttendance(lecture:Lecture, studentName:string, date:string, check:bool)
+}
+Human <|-- Teacher
+class Lecture {
+    + Lecture(name:string, address:string, timeStart:string, timeStop:string, teacher:Teacher)
+    + Name : string <<get>>
+    + Address : string <<get>>
+    + Start : string <<get>>
+    + Stop : string <<get>>
+    + Students : List<Student> <<get>>
+    + HomeroomTeacher: Teacher <<get, set>>
+		+ AttendanceList: HashMap<string, HashMap<string, bool>>
+		+ Grades: HashMap<string, byte>
+}
+Lecture --> Teacher
+Lecture --> Student
+@enduml

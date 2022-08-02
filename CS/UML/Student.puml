@@ -1,0 +1,6 @@
+@startuml
+class Student {
+    + Student(name:string, age:short)
+}
+Human <|-- Student
+@enduml

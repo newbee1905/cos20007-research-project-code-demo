@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cK/iPbxbnqsDBrF9ot+t04W8RvOWVnwj0C9AvGb4mTcQLYMgnLrV2AcSYNwh0pG7+jhGEnF3TOw0Mjzi+xT2Tw==",
+  "success": true,
+  "projectFilePath": "/home/newbee/Documents/Projects/COS20007_Research_Project/CS/CS.csproj",
+  "expectedPackageFiles": [
+    "/home/newbee/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.6/microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
