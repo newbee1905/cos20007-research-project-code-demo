@@ -1,0 +1,26 @@
+@startuml
+!theme minty
+interface Human {
+    + get_name(): &str
+    + get_age(): i8
+}
+class Student {
+    + Student(name:&str, age:i8)
+}
+Human <|-- Student
+class Teacher {
+    + Teacher(name:&str, age:i8)
+}
+Human <|-- Teacher
+class Lecture {
+    + Lecture(name:string, address:string, time_star:string, time_stop:string, teacher:Teacher)
+    + get_name : &str 
+    + get_address : &str
+    + get_time_start : &str
+    + get_time_stop : &str
+    + get_homeroom_teacher : &Teacher
+    + get_students : &Vec<Student>
+}
+Lecture --> Teacher
+Lecture --> Student
+@enduml

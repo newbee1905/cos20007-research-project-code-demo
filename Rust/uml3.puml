@@ -1,0 +1,57 @@
+@startuml
+!theme minty
+interface Human {
+    + get_name(): &str
+    + get_age(): i8
+}
+interface IStudent {
+		+ get_grade(lecture:&Lecture)
+}
+interface IGrader {
+		+ grade(lecture:&Lecture, student_name:&str, grade:i8)
+}
+interface IAttendanceChecker {
+		+ check_attendance(lecture:&Lecture, student_name:&str, date:&str, check:bool)
+}
+class Student {
+    + Student(name:&str, age:i8)
+}
+Human <|-- Student
+IStudent <|-- Student
+class StudentPresident {
+    + StudentPresident(name:&str, age:i8)
+}
+Human <|-- StudentPresident
+IStudent <|-- StudentPresident
+IAttendanceChecker <|-- StudentPresident
+class StudentVicePresident {
+    + StudentVicePresident(name:&str, age:i8)
+}
+Human <|-- StudentVicePresident
+IStudent <|-- StudentVicePresident
+IGrader <|-- StudentVicePresident
+class Teacher {
+    + Teacher(name:&str, age:i8)
+}
+Human <|-- Teacher
+IAttendanceChecker <|-- StudentPresident
+IGrader <|-- StudentPresident
+class Lecture {
+    + Lecture(name:string, address:string, time_star:string, time_stop:string, teacher:Teacher)
+    + get_name : &str 
+    + get_address : &str
+    + get_time_start : &str
+    + get_time_stop : &str
+    + get_homeroom_teacher : &Teacher
+    + get_student_president: &StudentPresident
+    + get_student_vicepresident: &StudentVicePresident
+    + get_homeroom_teacher : &Teacher
+    + get_students : &Vec<Student>
+		+ get_attendance_list: &mut HashMap<String, HashMap<String, bool>>
+		+ get_grades: &mut HashMap<String, i8>
+}
+Lecture --> Teacher
+Lecture --> Student
+Lecture --> StudentPresident
+Lecture --> StudentVicePresident
+@enduml
